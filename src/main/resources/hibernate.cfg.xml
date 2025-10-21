@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.connection.password">ssn</property>
+
+        <!-- NOTE: Change username and password to match your Oracle setup -->
+
+        <!-- Show SQL in console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Auto-create/update tables -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Connection Pool Settings -->
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- Current Session Context -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Entity Classes -->
+        <mapping class="com.library.model.Book"/>
+        <mapping class="com.library.model.Member"/>
+        <mapping class="com.library.model.Transaction"/>
+    </session-factory>
+</hibernate-configuration>
